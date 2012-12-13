@@ -126,7 +126,7 @@ def toto(*a,**kw):
     print kw
     print "done"
     return 1
-if __name__ == '__name__':
+if __name__ == '__main__':
 
     try:
         toto(2, "uiui", name= "this")
