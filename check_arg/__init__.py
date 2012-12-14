@@ -22,30 +22,24 @@ def default_doc_maker(a_func, *pos, **opt):
 SENTINEL=Sentinel()
 
 
-class valid_and_doc(object):
-    def __init__(
-            self,
+def valid_and_doc(
             pre_validate = SENTINEL,
             post_validate = SENTINEL,
             doc_maker = default_doc_maker
         ):
-        self.pre_validate = pre_validate
-        self.post_validate = post_validate
-        self.doc_maker = doc_maker
-
-    def __call__(self,*pos,**named):
+    def wraps(*pos, **named):
         additionnal_doc=""
-        if self.pre_validate is not SENTINEL:
-            additionnal_doc += self.doc_maker(self.pre_validate, *pos, **named)
-        if self.post_validate is not SENTINEL:
-            additionnal_doc += self.doc_maker(self.post_validate, *pos, **named)
+        if pre_validate is not SENTINEL:
+            additionnal_doc += doc_maker(pre_validate, *pos, **named)
+        if post_validate is not SENTINEL:
+            additionnal_doc += doc_maker(post_validate, *pos, **named)
         def wrap(func):
             def rewrapped(*a,**kw):
-                if self.pre_validate is not SENTINEL:
-                    self.pre_validate(*pos,**named)(*a,**kw)
+                if pre_validate is not SENTINEL:
+                    pre_validate(*pos,**named)(*a,**kw)
                 res = func(*a,**kw)
-                if self.post_validate is not SENTINEL:
-                    self.post_validate(*pos,**named)(*a,**kw)
+                if post_validate is not SENTINEL:
+                    post_validate(*pos,**named)(*a,**kw)
                 return res
 
             rewrapped.__module__ = func.__module__
@@ -53,6 +47,7 @@ class valid_and_doc(object):
             rewrapped.__name__ = func.__name__
             return rewrapped
         return wrap
+    return wraps
 
 
 def keyword_must_contain_key(*key):

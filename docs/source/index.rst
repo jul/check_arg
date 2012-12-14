@@ -12,7 +12,7 @@ Contents:
    :maxdepth: 2
 
 
-.. automodule:: arg_check
+.. automodule:: check_arg
    :members: toto
 
 Indices and tables
