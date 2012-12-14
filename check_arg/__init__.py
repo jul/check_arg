@@ -13,7 +13,7 @@ def default_doc_maker(a_func, *pos, **opt):
 
     return """
 **%s** :%s
-%s""" % ( 
+%s""" % (
         a_func.__name__,
         posd,
         named
