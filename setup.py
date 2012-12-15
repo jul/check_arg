@@ -3,12 +3,19 @@
 
 #from setuptools import setup, find_packages
 from distutils.core import setup
-import unittest
 import sys
 #from distutils.command.build_py import build_py as _build_py
 #import unittest
 #import sys
-
+if "install" in sys.argv or "setup" in sys.argv or "sdist" in sys.argv:
+    from check_arg import test_valid
+    import unittest
+    loader= unittest.TestLoader()
+    suite=loader.loadTestsFromModule(test_valid)
+    runner=unittest.TextTestRunner(verbosity=2)
+    result=runner.run(suite)
+    if  not result.wasSuccessful():
+        raise Exception( "Test Failed")
 
 setup(
         name='check_arg',
@@ -27,8 +34,9 @@ setup(
           'License :: OSI Approved :: Python Software Foundation License',
           'Programming Language :: Python :: 2.7',
           'Programming Language :: Python :: 3.2',
-          'Programming Language :: Python :: 3.3',
           'Operating System :: OS Independent',
           'Programming Language :: Python',
           ],
 )
+
+
