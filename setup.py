@@ -9,18 +9,6 @@ import sys
 #import unittest
 #import sys
 
-def test():
-    """Specialized Python source builder."""
-    from check_arg import test_valid
-    loader= unittest.TestLoader()
-    suite=loader.loadTestsFromModule(test_valid)
-    runner=unittest.TextTestRunner()
-    result=runner.run(suite)
-    if  not result.wasSuccessful():
-        raise Exception( "Test Failed: Aborting install")
-
-if "install" in sys.argv or "sdist" in sys.argv or "update" in sys.argv:
-    test()
 
 setup(
         name='check_arg',
