@@ -28,10 +28,10 @@ setup(
         author='Julien Tayon',
         author_email='julien@tayon.net',
         packages=['check_arg'],
-        url='http://check_arg.readthedocs.org/',
-        license=open('LICENSE.txt').read(),
+        url='http://github.org/jul/check_arg',
+        license="License :: OSI Approved :: BSD License",
         description="wrapping decorator to enhance the documentation",
-        long_description="License :: OSI Approved :: BSD License",
+        long_description=open("README.txt").read()
         requires=[ ],
         classifiers=[
           'Development Status :: 4 - Beta',

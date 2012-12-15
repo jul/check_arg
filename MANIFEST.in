@@ -1,0 +1,3 @@
+include check_arg/*py
+include README.txt
+include LICENSE.txt
