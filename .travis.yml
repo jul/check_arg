@@ -9,4 +9,5 @@ python:
 install:
   - pip install --use-mirrors . 
 script:
- - python test.py
+ - python -munittest discover
+ 
