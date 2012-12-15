@@ -19,8 +19,6 @@ def test():
     if  not result.wasSuccessful():
         raise Exception( "Test Failed: Aborting install")
 
-if "install" in sys.argv or "sdist" in sys.argv or "update" in sys.argv:
-    test()
 
 setup(
         name='check_arg',
@@ -44,3 +42,5 @@ setup(
           'Programming Language :: Python',
           ],
 )
+if "install" in sys.argv or "sdist" in sys.argv or "update" in sys.argv:
+    test()
