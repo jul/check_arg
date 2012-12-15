@@ -23,25 +23,17 @@ SENTINEL=Sentinel()
 
 
 def valid_and_doc(
-            pre_validate = SENTINEL,
-            post_validate = SENTINEL,
+            validate,
             doc_maker = default_doc_maker
         ):
+    
     def wraps(*pos, **named):
-        additionnal_doc=""
-        if pre_validate is not SENTINEL:
-            additionnal_doc += doc_maker(pre_validate, *pos, **named)
-        if post_validate is not SENTINEL:
-            additionnal_doc += doc_maker(post_validate, *pos, **named)
+        additionnal_doc = doc_maker(validate, *pos, **named)
         def wrap(func):
             def rewrapped(*a,**kw):
-                if pre_validate is not SENTINEL:
-                    pre_validate(*pos,**named)(*a,**kw)
+                validate(*pos,**named)(*a,**kw)
                 res = func(*a,**kw)
-                if post_validate is not SENTINEL:
-                    post_validate(*pos,**named)(*a,**kw)
-                return res
-
+            
             rewrapped.__module__ = func.__module__
             rewrapped.__doc__=func.__doc__  + additionnal_doc
             rewrapped.__name__ = func.__name__
@@ -97,7 +89,7 @@ def _validate(**validator):
                 key, valid.__doc__ is not None and valid.__doc__ or valid.__name__
                 ) for key, valid in validator.items()
             ) )
-    return dict( pre_validate=wrap, doc_maker = validate_doc)
+    return [ wrap, validate_doc ]
 
 
 def at_least_n_positional(ceil):
@@ -108,7 +100,7 @@ def at_least_n_positional(ceil):
 
 must_have_key = valid_and_doc(keyword_must_contain_key)
 set_default_kw_value = valid_and_doc(default_kw_value)
-validate = valid_and_doc(**_validate())
+validate = valid_and_doc(*_validate())
 min_positional= valid_and_doc(at_least_n_positional)
 
 @set_default_kw_value(port=1026,nawak=123)
