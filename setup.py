@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: "utf-8" -*-
 
-from setuptools import setup, find_packages
+#from setuptools import setup, find_packages
+from distutils.core import setup
 import unittest
 import sys
 #from distutils.command.build_py import build_py as _build_py
-#from distutils.core import setup
 #import unittest
 #import sys
 
@@ -37,13 +37,8 @@ setup(
           'Development Status :: 4 - Beta',
           'Intended Audience :: Developers',
           'License :: OSI Approved :: Python Software Foundation License',
-          'Programming Language :: Python :: 2.6',
           'Programming Language :: Python :: 2.7',
-          'Programming Language :: Python :: 3.1',
           'Programming Language :: Python :: 3.2',
-          'Programming Language :: Python :: 3.3',
-          'Programming Language :: Python :: 2',
-          'Programming Language :: Python :: 3',
           'Operating System :: OS Independent',
           'Programming Language :: Python',
           ],
