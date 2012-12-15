@@ -2,7 +2,8 @@
 * source: https://github.com/jul/check_arg
 * ticketing: https://github.com/jul/check_arg/issues
 
-
+.. image:: 
+   https://travis-ci.org/jul/check_arg.png
 
 Usage
 =====
