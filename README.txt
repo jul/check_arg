@@ -19,18 +19,20 @@ Checking optional/positional arguments and auto documenting at the same time
 
 Example by using some currying, the purpose is to achieve auto documentation
 and validation so that::
-   @set_default_kw_value(port=1026,nawak=123)
-   @must_have_key("name")
-   @min_positional(2)
-   @validate(name = naming_convention(), port = in_range(1024,1030 ))
-   def toto(*a,**kw):
-       """useless fonction"""
-       print a
-       print kw
-       print "done"
-       return 1
+
+   >>> @set_default_kw_value(port=1026,nawak=123)
+   >>> @must_have_key("name")
+   >>> @min_positional(2)
+   >>> @validate(name = naming_convention(), port = in_range(1024,1030 ))
+   >>> def toto(*a,**kw):
+   ...    """useless fonction"""
+   ...    print a
+   ...    print kw
+   ...    print "done"
+   ...        return 1
 
 gives this results::
+
    >>> help(toto)
    ... Help on function toto in module __main__:
    ... 
@@ -58,8 +60,9 @@ Use
 
 To create a decorator that will be called *before* the called functions and which 
 names and arguments will enhance the documentation as in the following example just do::
-    set_default_kw_value = valid_and_doc(default_kw_value)
-    min_positional = valid_and_doc(at_least_n_positional)
+
+   >>> set_default_kw_value = valid_and_doc(default_kw_value)
+   >>> min_positional = valid_and_doc(at_least_n_positional)
 
 
 
@@ -101,6 +104,6 @@ Changelog
 =========
 
 * 0.1.0 initial release
-* 0.1.1 trying to have README.txt being seen as Rst
+* 0.1.(1|2|3) trying to have README.txt being seen as Rst
 
 

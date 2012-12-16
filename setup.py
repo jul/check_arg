@@ -19,7 +19,7 @@ if "install" in sys.argv or "setup" in sys.argv or "sdist" in sys.argv:
 
 setup(
         name='check_arg',
-        version='0.1.1',
+        version='0.1.3',
         author='Julien Tayon',
         author_email='julien@tayon.net',
         packages=['check_arg'],
