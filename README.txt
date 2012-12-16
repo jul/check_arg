@@ -65,14 +65,13 @@ names and arguments will enhance the documentation as in the following example j
    >>> min_positional = valid_and_doc(at_least_n_positional)
 
 
-
 You can provide a default template for the documention as a second argument::
    >>> def in_range(low,high):
    ...      def _in_range(_int):
    ...          return high >= _int > low
    ...      _in_range.__doc__ = """belong to [ %s, %s [""" % (low, high)
    ...      return _in_range
-
+   ...
    >>> def _validate(**validator):
    ...      def wrap(**validator):
    ...          def rewrapped(*a,**kw):
@@ -85,7 +84,7 @@ You can provide a default template for the documention as a second argument::
    ...                      ) ) )
    ...          return rewrapped
    ...
-   >>>      def validate_doc(_validate,  **validator):
+   ...      def validate_doc(_validate,  **validator):
    ...         return """
    ...
    ...  **kewords must validate the following rules**:
@@ -99,6 +98,7 @@ You can provide a default template for the documention as a second argument::
    ...      return [ wrap, validate_doc ]
    ... 
    >>> validate = valid_and_doc(*_validate())
+
 
 Changelog
 =========
