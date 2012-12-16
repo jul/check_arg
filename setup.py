@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: "utf-8" -*-
 
-#from setuptools import setup, find_packages
-from distutils.core import setup
+from setuptools import setup, find_packages
+#from distutils.core import setup
 import sys
 #from distutils.command.build_py import build_py as _build_py
 #import unittest
@@ -19,7 +19,7 @@ if "install" in sys.argv or "setup" in sys.argv or "sdist" in sys.argv:
 
 setup(
         name='check_arg',
-        version='0.1.0',
+        version='0.1.1',
         author='Julien Tayon',
         author_email='julien@tayon.net',
         packages=['check_arg'],

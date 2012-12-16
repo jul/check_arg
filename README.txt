@@ -1,5 +1,6 @@
-Resource
-********
+=======================
+check_arg documentation
+=======================
 
 * source: https://github.com/jul/check_arg
 * ticketing: https://github.com/jul/check_arg/issues
@@ -8,7 +9,7 @@ Resource
    https://travis-ci.org/jul/check_arg.png
 
 Usage
-*****
+=====
 
 
 Checking optional/positional arguments and auto documenting at the same time
@@ -53,7 +54,7 @@ gives this results::
    ...     * params: nawak is 123
 
 Use
-***
+===
 
 To create a decorator that will be called *before* the called functions and which 
 names and arguments will enhance the documentation as in the following example just do::
@@ -95,5 +96,11 @@ You can provide a default template for the documention as a second argument::
    ...      return [ wrap, validate_doc ]
    ... 
    >>> validate = valid_and_doc(*_validate())
+
+Changelog
+=========
+
+* 0.1.0 initial release
+* 0.1.1 trying to have README.txt being seen as Rst
 
 
