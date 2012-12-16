@@ -1,3 +1,5 @@
+Resource
+********
 
 * source: https://github.com/jul/check_arg
 * ticketing: https://github.com/jul/check_arg/issues
@@ -6,7 +8,8 @@
    https://travis-ci.org/jul/check_arg.png
 
 Usage
-=====
+*****
+
 
 Checking optional/positional arguments and auto documenting at the same time
 
@@ -50,7 +53,7 @@ gives this results::
    ...     * params: nawak is 123
 
 Use
-===
+***
 
 To create a decorator that will be called *before* the called functions and which 
 names and arguments will enhance the documentation as in the following example just do::
