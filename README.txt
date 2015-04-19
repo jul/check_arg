@@ -105,5 +105,6 @@ Changelog
 
 * 0.1.0 initial release
 * 0.1.(1|2|3) trying to have README.txt being seen as Rst
+* 0.1.4 confused check_arg with confined and messed up revisions
 
 
